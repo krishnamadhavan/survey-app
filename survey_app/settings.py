@@ -171,5 +171,7 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 # Use Database URLs in your Django Application.
 # https://pypi.org/project/dj-database-url/
 
-production_db = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(production_db)
+DATABASES['default'] = dj_database_url.config(
+    conn_max_age=600,
+    default='mysql://root:CruzBytesServer01@2k18@206.189.143.191:3306/survey-app'
+)
