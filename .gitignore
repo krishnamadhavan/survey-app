@@ -103,9 +103,6 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-# .ini files
-settings.ini
-
 # spam files
 .DS_Store
 .idea/
