@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'djoser.apps.DjoserConfig',
     'generics.apps.GenericsConfig',
+    'questionnaire.apps.QuestionnaireConfig',
     'rest_framework',
     'admin_reorder',
 ]
