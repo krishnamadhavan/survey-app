@@ -20,6 +20,7 @@ from django.urls import path, include
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('auth/', include('djoser.urls')),
+    path('questionnaire/', include('questionnaire.urls')),
 ]
 
 admin.site.site_header = 'Survey app Dashboard'

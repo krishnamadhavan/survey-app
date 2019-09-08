@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from rest_framework import generics, permissions
 
-# Create your views here.
+from questionnaire import serializers
+
+
+class CreateSurveyView(generics.CreateAPIView):
+    permission_classes = (
+        permissions.IsAuthenticated,
+    )
+    serializer_class = serializers.CreateSurveySerializer
