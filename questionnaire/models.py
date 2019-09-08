@@ -49,23 +49,20 @@ class Survey(models.Model):
                    ('04-I am not interested', '04-I am not interested'),
                    ('99-Others(please specify)', '99-Others(please specify)')
                    )
-    d3_choices = (('01-My vote can change things/effect how the country is run',
-                   '01-My vote can change things/effect how the country is run'),
-                  ('02-Voting is my right', '02-Voting is my right'), ('03-Voting is my duty', '03-Voting is my duty'),
+    d2_choices = (('01-My vote matters', '01-My vote matters'), ('02-Voting is my right', '02-Voting is my right'),
+                  ('03-Voting is my duty', '03-Voting is my duty'),
                   ('04-Because of enabling environment (free and fair) created by Election Commission',
                    '04-Because of enabling environment (free and fair) created by Election Commission'),
-                  ('05-I got registered in electoral roll', '05-I got registered in electoral roll'),
-                  ('06-I got voter slip', '06-I got voter slip'), ('07-Candidate was good', '07-Candidate was good'),
-                  ('08-Candidate was of my choice', '08-Candidate was of my choice'),
-                  ('09-I am a political party sympathizer', '09-I am a political party sympathizer'),
+                  ('05-Because of accessible polling station', '05-Because of accessible polling station'),
+                  ('06-I got registered in electoral roll', '06-I got registered in electoral roll'),
+                  ('07-I got voter slip', '07-I got voter slip'), ('08-Candidate was good', '08-Candidate was good'),
+                  ('09-I voted for a political party', '09-I voted for a political party'),
                   ('10-Cast vote due to threat or coercion', '10-Cast vote due to threat or coercion'),
-                  ('11-Voted as religious leader said so', '11-Voted as religious leader said so'),
-                  ('12-Head of family said to vote', '12-Head of family said to vote'),
-                  ('13-Influenced by friends', '13-Influenced by friends'),
-                  ('14-I had the option of NOTA', '14-I had the option of NOTA'),
-                  ('99-Others(please specify)', '99-Others(please specify)')
+                  ('12-My family asked me to', '12-My family asked me to'), ('13-My friends asked me to',
+                                                                             '13-My friends asked me to'),
+                  ('14-I had the option of NOTA', '14-I had the option of NOTA')
                   )
-    d6_choices = (('01-Long queue', '01-Long queue'),
+    d5_choices = (('01-Long queue', '01-Long queue'),
                   ('02-No separate queue for senior citizen', '02-No separate queue for senior citizen'),
                   ('03-Lack of facilities including drinking water toilet and ramp',
                    '03-Lack of facilities including drinking water toilet and ramp'),
@@ -78,27 +75,21 @@ class Survey(models.Model):
                   )
     d7_choices = (('01-My name was not on the electoral roll', '01-My name was not on the electoral roll'),
                   ('02-I was not in my consituency', '02-I was not in my consituency'),
-                  ('03-I did not get voter slip', '03-I did not get voter slip'),
-                  ('04-I did not have my electoral photo ID card(EPIC)',
-                   '04-I did not have my electoral photo ID card(EPIC)'),
-                  ('05-I did not know my polling station', '05-I did not know my polling station'),
-                  ('06-Polling station was at a distance (logistic problem)',
-                   '06-Polling station was at a distance (logistic problem)'),
-                  ('07-Long queue and I did not have time', '07-Long queue and I did not have time'),
-                  ('08-I felt insecure to go to the polling station',
-                   '08-I felt insecure to go to the polling station'),
-                  ('09-There was no candidate of my choice/liking', '09-There was no candidate of my choice/liking'),
-                  ('10-I just did not want to vote as nothing will change/ No faith in political system',
-                   '10-I just did not want to vote as nothing will change/ No faith in political system'),
-                  ('11-Did not vote as community or religious leader said so',
-                   '11-Did not vote as community or religious leader said so'),
-                  ('12-Head of family said not to vote', '12-Head of family said not to vote'),
-                  ('13-Voting in national or Assembly elections doesn\'t make a difference, I vote only in \
-                  local election', '13-Voting in national or Assembly elections doesn\'t make a difference, I vote \
+                  ('03-I did not have my electoral photo ID card(EPIC)',
+                   '03-I did not have my electoral photo ID card(EPIC)'),
+                  ('04-I did not know my polling station', '04-I did not know my polling station'),
+                  ('05-Polling station was at a distance (logistic problem)',
+                   '05-Polling station was at a distance (logistic problem)'),
+                  ('06-Long queue and I did not have time', '06-Long queue and I did not have time'),
+                  ('07-I felt insecure to go to the polling station',
+                   '07-I felt insecure to go to the polling station'),
+                  ('08-There was no candidate of my choice/liking', '08-There was no candidate of my choice/liking'),
+                  ('09-I just did not want to vote as nothing will change/ No faith in political system',
+                   '09-I just did not want to vote as nothing will change/ No faith in political system'),
+                  ('10-Voting in national or Assembly elections doesn\'t make a difference, I vote only in \
+                  local election', '10-Voting in national or Assembly elections doesn\'t make a difference, I vote \
                   only in local election'),
-                  ('14-Voting in national elections doesn\'t make a difference, I vote only in Assembly and \
-                  local election', '14-Voting in national elections doesn\'t make a difference, I vote only in \
-                  Assembly and local election'),
+                  ('11-Polling station was not accessible', '11-Polling station was not accessible'),
                   ('99-Others(please specify)', '99-Others(please specify)')
                   )
     e2_choices = (('0-18th Birthday', '0-18th Birthday'), ('1-1st January', '1-1st January'),
@@ -117,29 +108,31 @@ class Survey(models.Model):
     f2_choices = (('1-Newspapers/magazines', '1-Newspapers/magazines'), ('2-TV advertisements and programmes',
                                                                          '2-TV advertisements and programmes'),
                   ('3-Radio and FM channels', '3-Radio and FM channels'),
-                  ('4-Activity like Rallies, Prabhat Pheris, loudspeaker announcement',
-                   '4-Activity like Rallies, Prabhat Pheris, loudspeaker announcement'),
-                  ('5-Cultural/entertainments programmes', '5-Cultural/entertainments programmes'),
-                  ('6-Government offices circular', '6-Government offices circular'),
-                  ('7-Posters, hoardings and publicity materials', '7-Posters, hoardings and publicity materials'),
-                  ('8-NGO and Civil society Group', '8-NGO and Civil society Group'),
-                  ('9-Internet/ Social Media/Whatsapp', '9-Internet/ Social Media/Whatsapp'), ('10-SMS', '10-SMS'),
-                  ('11-Pledge letters/Sankalp patras through school students in the family',
-                   '11-Pledge letters/Sankalp patras through school students in the family'),
-                  ('12-At Polling Station', '12-At Polling Station'),
+                  ('4-Advertisements in cinemas', '4-Advertisements in cinemas'),
+                  ('5-Activity like Rallies, Prabhat Pheris, loudspeaker announcement',
+                   '5-Activity like Rallies, Prabhat Pheris, loudspeaker announcement'),
+                  ('6-Cultural/entertainments programmes', '6-Cultural/entertainments programmes'),
+                  ('7-Government offices circular', '7-Government offices circular'),
+                  ('8-Posters, hoardings and publicity materials', '8-Posters, hoardings and publicity materials'),
+                  ('9-NGO and Civil society Group', '9-NGO and Civil society Group'),
+                  ('10-Internet/ Social Media/Whatsapp', '10-Internet/ Social Media/Whatsapp'), ('11-SMS', '11-SMS'),
+                  ('12-Pledge letters/Sankalp patras through school students in the family',
+                   '12-Pledge letters/Sankalp patras through school students in the family'),
+                  ('13-At Polling Station', '13-At Polling Station'),
                   ('99-Others (please specify)', '99-Others (please specify)')
                   )
     f3_choices = (('01-Date of voting and schedules', '01-Date of voting and schedules'),
                   ('02-Voting is my right and duty', '02-Voting is my right and duty'),
                   ('03-Cast vote as per choice and without taking any inducement',
                    '03-Cast vote as per choice and without taking any inducement'),
-                  ('04-Register Yourself', '04-Register Yourself'),
-                  ('05-Preparation of voter cards (EPIC)', '05-Preparation of voter cards (EPIC)'),
-                  ('06-Voter slip distribution schedule', '06-Voter slip distribution schedule'),
-                  ('07-Alternate identity documents for voting', '07-Alternate identity documents for voting'),
-                  ('08-Separate queues for old and sick', '08-Separate queues for old and sick'),
-                  ('09-Do\'s and don\'ts on polling day', '09-Do\'s and don\'ts on polling day'),
-                  ('10-NVSP portal', '10-NVSP portal'), ('99-Others (please specify)', '99-Others (please specify)')
+                  ('04-#GoRegister or Register', '04-#GoRegister or Register'),
+                  ('05-#GoVerify or Verify name in voter list', '05-#GoVerify or Verify name in voter list'),
+                  ('06-12 Identity documents allowed for Voting', '06-12 Identity documents allowed for Voting'),
+                  ('07-Facilities provided at polling station', '07-Facilities provided at polling station'),
+                  ('08-Priority voting for old and PwDs', '08-Priority voting for old and PwDs'),
+                  ('09-Voter helpline 1950 or Voter helpline app', '09-Voter helpline 1950 or Voter helpline app'),
+                  ('10-cVIGIL app related', '10-cVIGIL app related'), ('11-NVSP portal', '11-NVSP portal'),
+                  ('99-Others (please specify)', '99-Others (please specify)')
                   )
     f5_choices = (('1-Ex-President APJ Abdul Kalam', '1-Ex-President APJ Abdul Kalam'),
                   ('2-Cricketer M.S. Dhoni', '2-Cricketer M.S. Dhoni'),
@@ -158,6 +151,9 @@ class Survey(models.Model):
                    '6-To know details about the candidates/political parties'),
                   ('7-To participate in online contests', '7-To participate in online contests'),
                   ('99-Others (please specify)', '99-Others (please specify)')
+                  )
+    f9_choices = (('0-None of the two', '0-None of the two'), ('1-Voter Helpline no 1950', '1-Voter Helpline no 1950'),
+                  ('2-Voter Helpline app only', '2-Voter Helpline app only'), ('3-Both of them', '3-Both of them')
                   )
     f10_choices = (('1-To clear doubts about registration process', '1-To clear doubts about registration process'),
                    ('2-To clear doubts about voting process', '2-To clear doubts about voting process'),
@@ -225,21 +221,20 @@ class Survey(models.Model):
     c9 = models.CharField(max_length=128, verbose_name=_('c9'), choices=c9_choices, blank=True, null=True)
     c10 = models.CharField(max_length=128, verbose_name=_('c10'), choices=c10_choices, blank=True, null=True)
     d1 = models.CharField(max_length=128, verbose_name=_('d1'), choices=bool_choices)
-    d2 = models.CharField(max_length=128, verbose_name=_('d2'), choices=bool_choices)
-    d3 = models.CharField(max_length=128, verbose_name=_('d3'), choices=d3_choices)
-    d4a = models.CharField(max_length=128, verbose_name=_('d4a'), choices=null_boolean_choices)
-    d4b = models.CharField(max_length=128, verbose_name=_('d4b'), choices=null_boolean_choices)
-    d4c = models.CharField(max_length=128, verbose_name=_('d4c'), choices=null_boolean_choices)
-    d4d = models.CharField(max_length=128, verbose_name=_('d4d'), choices=null_boolean_choices)
-    d4e = models.CharField(max_length=128, verbose_name=_('d4e'), choices=null_boolean_choices)
-    d4f = models.CharField(max_length=128, verbose_name=_('d4f'), choices=null_boolean_choices)
-    d4g = models.CharField(max_length=128, verbose_name=_('d4g'), choices=null_boolean_choices)
-    d4h = models.CharField(max_length=128, verbose_name=_('d4h'), choices=null_boolean_choices)
-    d4i = models.CharField(max_length=128, verbose_name=_('d4i'), choices=null_boolean_choices)
-    d4j = models.CharField(max_length=128, verbose_name=_('d4j'), choices=null_boolean_choices)
-    d4k = models.CharField(max_length=128, verbose_name=_('d4k'), choices=null_boolean_choices)
-    d5 = models.CharField(max_length=128, verbose_name=_('d5'), choices=bool_choices, blank=True, null=True)
-    d6 = models.CharField(max_length=128, verbose_name=_('d6'), choices=d6_choices, blank=True, null=True)
+    d2 = models.CharField(max_length=128, verbose_name=_('d2'), choices=d2_choices)
+    d3a = models.CharField(max_length=128, verbose_name=_('d3a'), choices=null_boolean_choices)
+    d3b = models.CharField(max_length=128, verbose_name=_('d3b'), choices=null_boolean_choices)
+    d3c = models.CharField(max_length=128, verbose_name=_('d3c'), choices=null_boolean_choices)
+    d3d = models.CharField(max_length=128, verbose_name=_('d3d'), choices=null_boolean_choices)
+    d3e = models.CharField(max_length=128, verbose_name=_('d3e'), choices=null_boolean_choices)
+    d3f = models.CharField(max_length=128, verbose_name=_('d3f'), choices=null_boolean_choices)
+    d3g = models.CharField(max_length=128, verbose_name=_('d3g'), choices=null_boolean_choices)
+    d3h = models.CharField(max_length=128, verbose_name=_('d3h'), choices=null_boolean_choices)
+    d3i = models.CharField(max_length=128, verbose_name=_('d3i'), choices=null_boolean_choices)
+    d3j = models.CharField(max_length=128, verbose_name=_('d3j'), choices=null_boolean_choices)
+    d3k = models.CharField(max_length=128, verbose_name=_('d3k'), choices=null_boolean_choices)
+    d4 = models.CharField(max_length=8, verbose_name=_('d4'), choices=bool_choices)
+    d5 = models.CharField(max_length=128, verbose_name=_('d5'), choices=d5_choices, blank=True, null=True)
     d7 = models.CharField(max_length=128, verbose_name=_('d7'), choices=d7_choices, blank=True, null=True)
     e1 = models.IntegerField(verbose_name=_('e1'), default=99)
     e2 = models.CharField(max_length=128, verbose_name=_('e2'), choices=e2_choices)
@@ -258,12 +253,14 @@ class Survey(models.Model):
     f1 = models.CharField(max_length=128, verbose_name=_('f1'), choices=null_boolean_choices)
     f2 = models.CharField(max_length=128, verbose_name=_('f2'), choices=f2_choices)
     f3 = models.CharField(max_length=128, verbose_name=_('f3'), choices=f3_choices)
-    f4 = models.CharField(max_length=128, verbose_name=_('f4'), choices=null_boolean_choices, blank=True, null=True)
+    f4a = models.CharField(max_length=128, verbose_name=_('f4a'), choices=bool_choices, blank=True, null=True)
+    f4b = models.CharField(max_length=128, verbose_name=_('f4b'), choices=bool_choices, blank=True, null=True)
+    f4c = models.CharField(max_length=128, verbose_name=_('f4c'), choices=bool_choices, blank=True, null=True)
     f5 = models.CharField(max_length=128, verbose_name=_('f5'), choices=f5_choices)
     f6 = models.CharField(max_length=128, verbose_name=_('f6'), choices=null_boolean_choices)
     f7 = models.CharField(max_length=128, verbose_name=_('f7'), choices=f7_choices)
     f8 = models.CharField(max_length=128, verbose_name=_('f8'), choices=somewhat_choices)
-    f9 = models.CharField(max_length=128, verbose_name=_('f9'), choices=null_boolean_choices)
+    f9 = models.CharField(max_length=128, verbose_name=_('f9'), choices=f9_choices)
     f10 = models.CharField(max_length=128, verbose_name=_('f10'), choices=f10_choices)
     f11 = models.CharField(max_length=128, verbose_name=_('f11'), choices=somewhat_choices)
     f12a = models.CharField(max_length=128, verbose_name=_('f12a'), choices=null_boolean_choices)
