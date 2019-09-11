@@ -12,7 +12,23 @@ somewhat_choices = (('0-No', '0-No'), ('1-Somewhat', '1-Somewhat'), ('2-Yes', '2
 
 class Survey(models.Model):
     a1_choices = (('1-Received', '1-Received'), ('0-Not received', '0-Not received'))
+    a3_choices = (('Chennai', 'Chennai'), ('Vellore', 'Vellore'), ('Salem', 'Salem'), ('Nagapattinam', 'Nagapattinam'),
+                  ('Thirunelveli', 'Thirunelveli'), ('Sivagangai', 'Sivagangai'))
+    a3_code_choices = ((603, 603), (605, 605), (608, 608), (618, 618), (622, 622), (628, 628))
     a4_choices = (('1-Urban', '1-Urban'), ('0-Rural', '0-Rural'))
+    a5_choices = (('Saidapet', 'Saidapet'), ('Perambur', 'Perambur'), ('Thiru Vi Ka Nagar (SC)',
+                                                                       'Thiru Vi Ka Nagar (SC)'),
+                  ('Harbour', 'Harbour'), ('Vellore', 'Vellore'), ('Tiruppatur', 'Tiruppatur'),
+                  ('Arkonam (SC)', 'Arkonam (SC)'), ('Gudiyattam (SC)', 'Gudiyattam (SC)'), ('Omalur', 'Omalur'),
+                  ('Mettur', 'Mettur'), ('Yarcard (ST)', 'Yarcard (ST)'), ('Sankari', 'Sankari'),
+                  ('Nagapptinam', 'Nagapptinam'), ('Kilvelur (SC)', 'Kilvelur (SC)'), ('Myladuthurai', 'Myladuthurai'),
+                  ('Sirkalzi (SC)', 'Sirkalzi (SC)'), ('Sankarankovil (SC)', 'Sankarankovil (SC)'),
+                  ('Tenkasi', 'Tenkasi'), ('Palayamkottai', 'Palayamkottai'), ('Karaikudi', 'Karaikudi'),
+                  ('Tiruppattur', 'Tiruppattur'), ('Sivaganga', 'Sivaganga'), ('Manamadurai', 'Manamadurai')
+                  )
+    a5_code_choices = ((23, 23), (12, 12), (15, 15), (18, 18), (43, 43), (50, 50), (38, 38), (46, 46), (83, 83),
+                       (84, 84), (85, 85), (87, 87), (160, 160), (161, 161), (163, 163), (164, 164), (219, 219),
+                       (222, 222), (223, 223), (226, 226), (184, 184), (185, 185), (186, 186), (187, 187))
     a12_choices = (('1-Completed', '1-Completed'), ('2-Entire HH absent for a long time',
                                                     '2-Entire HH absent for a long time'),
                    ('3-Postponed', '3-Postponed'), ('4-Refused (Pl. specify reasons)', 'Refused (Pl. specify reasons)'),
@@ -191,9 +207,11 @@ class Survey(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.CASCADE, verbose_name=_('Surveyor'), related_name=_('surveys'))
     a1 = models.CharField(max_length=24, verbose_name=_('a1'), choices=a1_choices)
     a2 = models.TextField(verbose_name=_('a2'))
-    a3 = models.TextField(verbose_name=_('a3'))
+    a3 = models.TextField(verbose_name=_('a3'), choices=a3_choices)
+    a3_code = models.IntegerField(verbose_name=_('a3_code'), choices=a3_code_choices)
     a4 = models.CharField(max_length=8, verbose_name=_('a4'), choices=a4_choices)
-    a5 = models.TextField(verbose_name=_('a5'), blank=True, null=True)
+    a5 = models.TextField(verbose_name=_('a5'), blank=True, null=True, choices=a5_choices)
+    a5_code = models.TextField(verbose_name=_('a5'), blank=True, null=True, choices=a5_code_choices)
     a6 = models.TextField(verbose_name=_('a6'))
     a7 = models.TextField(verbose_name=_('a7'))
     a8 = models.TextField(verbose_name=_('a8'))
