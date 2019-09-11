@@ -155,10 +155,10 @@ class Survey(models.Model):
     f9_choices = (('0-None of the two', '0-None of the two'), ('1-Voter Helpline no 1950', '1-Voter Helpline no 1950'),
                   ('2-Voter Helpline app only', '2-Voter Helpline app only'), ('3-Both of them', '3-Both of them')
                   )
-    f10_choices = (('1-To clear doubts about registration process', '1-To clear doubts about registration process'),
-                   ('2-To clear doubts about voting process', '2-To clear doubts about voting process'),
-                   ('3-To know the polling dates and details', '3-To know the polling dates and details'),
-                   ('4-To know details of your BLO', '4-To know details of your BLO'),
+    f10_choices = (('1-To know about registration or voting process', '1-To know about registration or voting process'),
+                   ('2-To verify name on voter list', '2-To verify name on voter list'),
+                   ('3-To know my polling station', '3-To know my polling station'),
+                   ('4-To know details of my BLO', '4-To know details of my BLO'),
                    ('5-To register a complaint', '5-To register a complaint'),
                    ('99-Others (please specify)', '99-Others (please specify)')
                    )
@@ -263,12 +263,6 @@ class Survey(models.Model):
     f9 = models.CharField(max_length=128, verbose_name=_('f9'), choices=f9_choices)
     f10 = models.CharField(max_length=128, verbose_name=_('f10'), choices=f10_choices)
     f11 = models.CharField(max_length=128, verbose_name=_('f11'), choices=somewhat_choices)
-    f12a = models.CharField(max_length=128, verbose_name=_('f12a'), choices=null_boolean_choices)
-    f12b = models.CharField(max_length=128, verbose_name=_('f12b'), choices=null_boolean_choices)
-    f12c = models.CharField(max_length=128, verbose_name=_('f12c'), choices=null_boolean_choices)
-    f12d = models.CharField(max_length=128, verbose_name=_('f12d'), choices=null_boolean_choices)
-    f12e = models.CharField(max_length=128, verbose_name=_('f12e'), choices=null_boolean_choices)
-    f12f = models.CharField(max_length=128, verbose_name=_('f12f'), choices=null_boolean_choices)
     g1 = models.CharField(max_length=128, verbose_name=_('g1'), choices=g1_choices)
     g2 = models.CharField(max_length=128, verbose_name=_('g2'), choices=g2_choices)
     g3 = models.CharField(max_length=128, verbose_name=_('g3'), choices=g3_choices)
