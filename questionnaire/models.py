@@ -23,8 +23,9 @@ class Survey(models.Model):
                   ('Mettur', 'Mettur'), ('Yarcard (ST)', 'Yarcard (ST)'), ('Sankari', 'Sankari'),
                   ('Nagapptinam', 'Nagapptinam'), ('Kilvelur (SC)', 'Kilvelur (SC)'), ('Myladuthurai', 'Myladuthurai'),
                   ('Sirkalzi (SC)', 'Sirkalzi (SC)'), ('Sankarankovil (SC)', 'Sankarankovil (SC)'),
-                  ('Tenkasi', 'Tenkasi'), ('Palayamkottai', 'Palayamkottai'), ('Karaikudi', 'Karaikudi'),
-                  ('Tiruppattur', 'Tiruppattur'), ('Sivaganga', 'Sivaganga'), ('Manamadurai', 'Manamadurai')
+                  ('Tenkasi', 'Tenkasi'), ('Alangulam', 'Alangulam'), ('Palayamkottai', 'Palayamkottai'),
+                  ('Karaikudi', 'Karaikudi'), ('Tiruppattur', 'Tiruppattur'), ('Sivaganga', 'Sivaganga'),
+                  ('Manamadurai', 'Manamadurai')
                   )
     a5_code_choices = ((23, 23), (12, 12), (15, 15), (18, 18), (43, 43), (50, 50), (38, 38), (46, 46), (83, 83),
                        (84, 84), (85, 85), (87, 87), (160, 160), (161, 161), (163, 163), (164, 164), (219, 219),
@@ -230,7 +231,7 @@ class Survey(models.Model):
     b13 = models.IntegerField(verbose_name=_('b13'), default=0)
     c1 = models.IntegerField(verbose_name=_('c1'), default=98)
     c2 = models.CharField(max_length=128, verbose_name=_('c2'), choices=null_boolean_choices, blank=True, null=True)
-    c3 = models.CharField(max_length=128, verbose_name=_('c3'), choices=c3_choices)
+    c3 = models.CharField(max_length=128, verbose_name=_('c3'), choices=c3_choices, blank=True, null=True)
     c4 = models.CharField(max_length=128, verbose_name=_('c4'), choices=bool_choices, blank=True, null=True)
     c5 = models.CharField(max_length=128, verbose_name=_('c5'), choices=c5_choices, blank=True, null=True)
     c6 = models.CharField(max_length=128, verbose_name=_('c6'), choices=c6_choices, blank=True, null=True)
