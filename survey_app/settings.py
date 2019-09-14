@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'questionnaire.apps.QuestionnaireConfig',
     'rest_framework',
     'admin_reorder',
+    'import_export',
 ]
 
 MIDDLEWARE = [
@@ -139,8 +140,8 @@ REST_FRAMEWORK = {
 # https://pypi.org/project/django-modeladmin-reorder/
 
 ADMIN_REORDER = (
-    # Rename app
     {'app': 'auth', 'models': ('auth.User',)},
+    {'app': 'questionnaire', 'models': ('questionnaire.Survey', 'questionnaire.FamilyDetails')}
 
 )
 

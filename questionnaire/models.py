@@ -305,6 +305,9 @@ class Survey(models.Model):
         verbose_name = _('Survey')
         verbose_name_plural = _('Surveys')
 
+    def __str__(self):
+        return str(self.pk)
+
 
 class FamilyDetails(models.Model):
     relationship_choices = (('01-Head', '01-Head'), ('02-Wife/Husband', '02-Wife/Husband'), ('03-Son/Daughter',
