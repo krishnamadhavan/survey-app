@@ -198,6 +198,7 @@ class Survey(models.Model):
     c10 = models.CharField(max_length=128, verbose_name=_('c10'), choices=c10_choices, blank=True, null=True)
     d1 = models.CharField(max_length=128, verbose_name=_('d1'), choices=bool_choices, blank=True, null=True)
     d2 = models.TextField(verbose_name=_('d2'), blank=True, null=True)
+    d3 = models.CharField(max_length=128, verbose_name=_('d3'), choices=null_boolean_choices, blank=True, null=True)
     d3a = models.CharField(max_length=128, verbose_name=_('d3a'), choices=null_boolean_choices, blank=True, null=True)
     d3b = models.CharField(max_length=128, verbose_name=_('d3b'), choices=null_boolean_choices, blank=True, null=True)
     d3c = models.CharField(max_length=128, verbose_name=_('d3c'), choices=null_boolean_choices, blank=True, null=True)
