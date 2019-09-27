@@ -86,7 +86,7 @@ class Survey(models.Model):
                   ('99-Others(please specify)', '99-Others(please specify)')
                   )
     e2_choices = (('0-18th Birthday', '0-18th Birthday'), ('1-1st January', '1-1st January'),
-                  ('99-Don’t Know', '99-Don’t Know'))
+                  ('99-Don\'t Know', '99-Don\'t Know'))
     e3_choices = (('0-Incorrect Date', '0-Incorrect Date'), ('1-Correct date', '1-Correct date'),
                   ('99-Don\'t know', '99-Don\'t know'))
     e4_choices = (('1-Yes, saw it when I cast my vote', '1-Yes, saw it when I cast my vote'),
@@ -297,6 +297,7 @@ class FamilyDetails(models.Model):
     relationship = models.CharField(max_length=128, verbose_name=_('Relationship with HH'),
                                     choices=relationship_choices, blank=True, null=True)
     sex = models.CharField(max_length=128, verbose_name=_('Sex'), choices=sex_choices, blank=True, null=True)
+    age = models.IntegerField(default=0, verbose_name=_('Age'))
     disabled = models.CharField(max_length=128, verbose_name=_('Disabled'), choices=disability_choices, blank=True,
                                 null=True)
     migration = models.CharField(max_length=128, verbose_name=_('Migrated in last 1 year'), choices=bool_choices,
